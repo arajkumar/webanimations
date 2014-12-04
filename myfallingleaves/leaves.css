@@ -2,22 +2,22 @@
 Important:
 
 This is sample code demonstrating API, technology or techniques in development.
-Although this sample code has been reviewed for technical accuracy, it is not 
-final. Apple is supplying this information to help you plan for the adoption of 
-the technologies and programming interfaces described herein. This information 
-is subject to change, and software implemented based on this sample code should 
-be tested with final operating system software and final documentation. Newer 
-versions of this sample code may be provided with future seeds of the API or 
-technology. For information about updates to this and other developer 
+Although this sample code has been reviewed for technical accuracy, it is not
+final. Apple is supplying this information to help you plan for the adoption of
+the technologies and programming interfaces described herein. This information
+is subject to change, and software implemented based on this sample code should
+be tested with final operating system software and final documentation. Newer
+versions of this sample code may be provided with future seeds of the API or
+technology. For information about updates to this and other developer
 documentation, view the New & Updated sidebars in subsequent documentation seeds.
 */
 
 /*
 File: leaves.css
 Abstract: Defines CSS properties for the leaves sample.
-          Applies animations to the leaves. Defines the appearance, position, and dimensions of 
+          Applies animations to the leaves. Defines the appearance, position, and dimensions of
           all div elements on the "Falling Leaves -- Using CSS Animations and Transforms" page.
-          
+
 Version: 1.0
 
 Disclaimer: IMPORTANT:  This Apple software is supplied to you by
@@ -78,7 +78,7 @@ body
 }
 
 /* Defines the position and dimensions of the leafContainer div */
-#leafContainer 
+#leafContainer
 {
     position: absolute;
     width: 100%;
@@ -114,7 +114,7 @@ a
 }
 
 /* Sets the color of the "Dino's Gardening Service" message */
-em 
+em
 {
     font-weight: bold;
     font-style: normal;
@@ -128,19 +128,19 @@ em
 /* This CSS rule is applied to all div elements in the leafContainer div.
    It styles and animates each leafDiv.
 */
-#leafContainer > div 
+#leafContainer > div
 {
     position: absolute;
     width: 100px;
     height: 100px;
-    
+
     /* We use the following properties to apply the fade and drop animations to each leaf.
        Each of these properties takes two values. These values respectively match a setting
        for fade and drop.
     */
-    -webkit-animation-iteration-count: infinite, infinite;
+    /*-webkit-animation-iteration-count: infinite, infinite;
     -webkit-animation-direction: normal, normal;
-    -webkit-animation-timing-function: linear, ease-in;
+    -webkit-animation-timing-function: linear, ease-in;*/
 }
 
 /* This CSS rule is applied to all img elements directly inside div elements which are
@@ -154,13 +154,13 @@ em
 
     /* We use the following properties to adjust the clockwiseSpin or counterclockwiseSpinAndFlip
        animations on each leaf.
-       The createALeaf function in the Leaves.js file determines whether a leaf has the 
+       The createALeaf function in the Leaves.js file determines whether a leaf has the
        clockwiseSpin or counterclockwiseSpinAndFlip animation.
     */
-     -webkit-animation-iteration-count: infinite;
+     /*-webkit-animation-iteration-count: infinite;
      -webkit-animation-direction: alternate;
      -webkit-animation-timing-function: ease-in-out;
-     -webkit-transform-origin: 50% -100%;
+     -webkit-transform-origin: 50% -100%;*/
 }
 
 
@@ -178,9 +178,9 @@ em
 @-webkit-keyframes drop
 {
     /* Move a leaf to -300 pixels in the y-axis at the start of the animation */
-    0%   { -webkit-transform: translate(0px, -50px); }
+    0%   { -webkit-transform: translate(0px, -50px) rotate(-50deg); }
     /* Move a leaf to 600 pixels in the y-axis at the end of the animation */
-    100% { -webkit-transform: translate(0px, 650px); }
+    100% { -webkit-transform: translate(0px, 650px) rotate(50deg); }
 }
 
 /* Rotates a leaf from -50 to 50 degrees in 2D space */
@@ -194,7 +194,7 @@ em
 
 
 /* Flips a leaf and rotates it from 50 to -50 degrees in 2D space */
-@-webkit-keyframes counterclockwiseSpinAndFlip 
+@-webkit-keyframes counterclockwiseSpinAndFlip
 {
     /* Flip a leaf and rotate it by 50 degrees in 2D space at the start of the animation */
     0%   { -webkit-transform: scale(-1, 1) rotate(50deg); }

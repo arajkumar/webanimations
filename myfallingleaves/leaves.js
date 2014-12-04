@@ -63,7 +63,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 
 /* Define the number of leaves to be used in the animation */
-const NUMBER_OF_LEAVES = 1;
+const NUMBER_OF_LEAVES = 30;
 
 /*
     Called when the "Falling Leaves" page is completely loaded.
@@ -143,21 +143,33 @@ function createALeaf()
     var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
 
     /* Set the -webkit-animation-name property with these values */
-    leafDiv.style.webkitAnimationName = 'fade, drop';
-    image.style.webkitAnimationName = spinAnimationName;
+    // leafDiv.style.webkitAnimationName = 'fade, drop';
+    // image.style.webkitAnimationName = spinAnimationName;
 
     /* Figure out a random duration for the fade and drop animations */
-    var fadeAndDropDuration = durationValue(randomFloat(5, 11));
+    var fadeAndDropDuration = randomFloat(5, 11) * 1000;
 
     /* Figure out another random duration for the spin animation */
-    var spinDuration = durationValue(randomFloat(4, 8));
+    // var spinDuration = durationValue(randomFloat(4, 8));
     /* Set the -webkit-animation-duration property with these values */
-    leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+    // leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
 
-    var leafDelay = durationValue(randomFloat(0, 5));
-    leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+    // var leafDelay = durationValue(randomFloat(0, 5));
+    // leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
 
-    image.style.webkitAnimationDuration = spinDuration;
+    // image.style.webkitAnimationDuration = spinDuration;
+
+    leafDiv.animate([
+        {offset: 0, opacity: 1, transform: "translate(0px, -50px) scale(-1, 1) rotate(50deg)"},
+        {offset: 0.95, opacity: 1},
+        {offset: 1, opacity: 0, transform: "translate(0px, 650px) scale(-1, 1) rotate(-50deg)"}
+    ], {
+        direction: 'normal',
+        duration: fadeAndDropDuration,
+        iterations: Infinity,
+        easing: 'ease-in',
+    });
+
 
     // add the <img> to the <div>
     leafDiv.appendChild(image);
